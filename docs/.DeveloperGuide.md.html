@@ -642,20 +642,6 @@ function setDocumentScrollTop(ypos)
 <h1> <a id="whatsnexttask-manager-application---developer-guide" class="anchor" href="#whatsnexttask-manager-application---developer-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>whatsNext(Task Manager Application) - Developer Guide</h1> 
 <p>By: T01-T4 Since: Jun 2017 License: MIT</p> 
 <hr /> 
-<ol> 
- <li><a href="#setting-up">Setting Up</a></li> 
- <li><a href="#design">Design</a></li> 
- <li><a href="#implementation">Implementation</a></li> 
- <li><a href="#testing">Testing</a></li> 
- <li><a href="#dev-ops">Dev Ops</a></li> 
-</ol> 
-<ul> 
- <li><a href="#appendix-a--user-stories">Appendix A: User Stories</a></li> 
- <li><a href="#appendix-b--use-cases">Appendix B: Use Cases</a></li> 
- <li><a href="#appendix-c--non-functional-requirements">Appendix C: Non Functional Requirements</a></li> 
- <li><a href="#appendix-d--glossary">Appendix D: Glossary</a></li> 
- <li><a href="#appendix-e--product-survey">Appendix E : Product Survey</a></li> 
-</ul> 
 <h2> <a id="1-setting-up" class="anchor" href="#1-setting-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Setting up</h2> 
 <h3> <a id="11-prerequisites" class="anchor" href="#11-prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1. Prerequisites</h3> 
 <ol> 
@@ -721,17 +707,17 @@ function setDocumentScrollTop(ypos)
  <li>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</li> 
  <li>At shut down: Shuts down the components and invokes cleanup method where necessary.</li> 
 </ul> 
-<p><a href="#common-classes"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p> 
+<p>[<strong><code>Commons</code></strong>] represents a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p> 
 <ul> 
  <li> <code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google's Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</li> 
  <li> <code>LogsCenter</code> : Used by many classes to write log messages to the App's log file.</li> 
 </ul> 
 <p>The rest of the App consists of four components.</p> 
 <ul> 
- <li> <a href="#ui-component"><strong><code>UI</code></strong></a> : The UI of the App.</li> 
- <li> <a href="#logic-component"><strong><code>Logic</code></strong></a> : The command executor.</li> 
- <li> <a href="#model-component"><strong><code>Model</code></strong></a> : Holds the data of the App in-memory.</li> 
- <li> <a href="#storage-component"><strong><code>Storage</code></strong></a> : Reads data from, and writes data to, the hard disk.</li> 
+ <li>[<strong><code>UI</code></strong>] : The UI of the App.</li> 
+ <li>[<strong><code>Logic</code></strong>] : The command executor.</li> 
+ <li>[<strong><code>Model</code></strong>]: Holds the data of the App in-memory.</li> 
+ <li>[<strong><code>Storage</code></strong>] : Reads data from, and writes data to, the hard disk.</li> 
 </ul> 
 <p>Each of the four components</p> 
 <ul> 
@@ -799,7 +785,7 @@ function setDocumentScrollTop(ypos)
 <h3> <a id="31-logging" class="anchor" href="#31-logging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1. Logging</h3> 
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p> 
 <ul> 
- <li>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#configuration">Configuration</a>)</li> 
+ <li>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See [Configuration])</li> 
  <li>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</li> 
  <li>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</li> 
 </ul> 
