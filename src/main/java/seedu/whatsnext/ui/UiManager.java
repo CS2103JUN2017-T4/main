@@ -45,7 +45,7 @@ public class UiManager extends ComponentManager implements Ui {
         super();
         UiManager.logic = logic;
         this.config = config;
-        UiManager.prefs = prefs;
+        this.prefs = prefs;
     }
 
     @Override
