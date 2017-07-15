@@ -11,7 +11,7 @@ public class UserPrefs {
 
     private GuiSettings guiSettings;
     private String reminderSetting;
-    
+
     private String taskManagerFilePath = "data/whatsnext.xml";
     private String taskManagerName = "MyTaskManager";
 

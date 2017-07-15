@@ -262,9 +262,9 @@ public class ModelManager extends ComponentManager implements Model {
      */
     private class ReminderQualifier implements Qualifier {
 
-        Date remindStart = new Date();
-        Date remindEnd = new Date();
-        Calendar cal = Calendar.getInstance();
+        private Date remindStart = new Date();
+        private Date remindEnd = new Date();
+        private Calendar cal = Calendar.getInstance();
 
         String reminderSetting = UiManager.getReminderSetting();
         Pattern p = Pattern.compile("(\\d+)\\s+(.*?)s?");
