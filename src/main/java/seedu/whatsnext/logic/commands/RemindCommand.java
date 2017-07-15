@@ -26,7 +26,7 @@ public class RemindCommand extends Command {
     public static final String MESSAGE_NO_CHANGE_IN_REMINDER_SETTING = "No change in reminder setting.\n"
             + "Reminder setting: ";
 
-    public String reminderString;
+    private String reminderString;
 
     public RemindCommand(String reminderString) {
         this.reminderString = reminderString;

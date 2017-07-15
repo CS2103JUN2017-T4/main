@@ -266,18 +266,20 @@ public class ModelManager extends ComponentManager implements Model {
         private Date remindEnd = new Date();
         private Calendar cal = Calendar.getInstance();
 
-        String reminderSetting = UiManager.getReminderSetting();
-        Pattern p = Pattern.compile("(\\d+)\\s+(.*?)s?");
+        private String reminderSetting = UiManager.getReminderSetting();
+        private Pattern p = Pattern.compile("(\\d+)\\s+(.*?)s?");
 
         @SuppressWarnings("serial")
-        Map<String, Integer> fields = new HashMap<String, Integer>() {{
-            put("minute", Calendar.MINUTE);
-            put("hour",   Calendar.HOUR);
-            put("day",    Calendar.DATE);
-            put("week",   Calendar.WEEK_OF_YEAR);
-            put("month",  Calendar.MONTH);
-            put("year",   Calendar.YEAR);
-        }};
+        private Map<String, Integer> fields = new HashMap<String, Integer>() {
+            {
+                put("minute", Calendar.MINUTE);
+                put("hour",   Calendar.HOUR);
+                put("day",    Calendar.DATE);
+                put("week",   Calendar.WEEK_OF_YEAR);
+                put("month",  Calendar.MONTH);
+                put("year",   Calendar.YEAR);
+            }
+        };
 
         @Override
         public boolean run(BasicTaskFeatures basicTaskFeatures) {

@@ -2,9 +2,6 @@ package seedu.whatsnext.logic.parser;
 
 import static seedu.whatsnext.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import seedu.whatsnext.commons.exceptions.IllegalValueException;
 import seedu.whatsnext.logic.commands.Command;
 import seedu.whatsnext.logic.commands.RemindCommand;
