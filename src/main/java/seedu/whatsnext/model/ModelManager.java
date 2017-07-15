@@ -118,11 +118,6 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void updateFilteredTaskListForInitialView() {
-        updateFilteredTaskList(new PredicateExpression(new CompletedQualifier(false)));
-    }
-
-    @Override
     public void updateTask(BasicTaskFeatures target, BasicTaskFeatures editedTask)
             throws DuplicateTaskException, TaskNotFoundException {
         saveInstance();
@@ -158,7 +153,15 @@ public class ModelManager extends ComponentManager implements Model {
         filteredTasks.setPredicate(expression::satisfies);
     }
 
+    @Override
+    public void updateFilteredTaskListForInitialView() {
+        updateFilteredTaskList(new PredicateExpression(new CompletedQualifier(false)));
+    }
+
     // @@author A0154986L
+    /**
+     * Updates the filter of the filtered task list to filter by task completion
+     */
     @Override
     public void updateFilteredTaskListToShowByCompletion(boolean isComplete) {
         updateFilteredTaskList(new PredicateExpression(new CompletedQualifier(isComplete)));
@@ -167,12 +170,11 @@ public class ModelManager extends ComponentManager implements Model {
 
     // @@author A0154986L
     /**
-     * Returns the filtered task list for reminder pop up window.
+     * Updates the filter of the filtered task list to filter for reminder pop up window.
      */
     @Override
     public void updateFilteredTaskListForReminder() {
         updateFilteredTaskList(new PredicateExpression(new ReminderQualifier()));
-        //indicateTaskManagerChanged();
     }
 
     @Override

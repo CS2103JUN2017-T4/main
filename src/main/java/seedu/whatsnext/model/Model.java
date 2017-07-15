@@ -64,10 +64,8 @@ public interface Model {
 
     // @@author A0154986L
     /**
-     * Returns the filtered event task list for reminder pop up window.
+     * Updates the filter of the filtered task list to filter for reminder pop up window.
      */
     void updateFilteredTaskListForReminder();
-
-
 
 }
