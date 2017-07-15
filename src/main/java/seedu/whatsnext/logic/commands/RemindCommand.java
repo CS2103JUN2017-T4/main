@@ -36,7 +36,7 @@ public class RemindCommand extends Command {
     public CommandResult execute() throws CommandException {
         requireNonNull(reminderString);
         String currentReminderSetting = UiManager.getReminderSetting();
-        
+
         if (reminderString.equals(currentReminderSetting)) {
             logger.info(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING);
             throw new CommandException(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING + currentReminderSetting);

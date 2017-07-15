@@ -18,7 +18,7 @@ public class UserPrefs {
     private static final String DEFAULT_REMINDER = "3 day";
 
     public UserPrefs() {
-        this.setGuiSettings(500, 500, 0, 0);        
+        this.setGuiSettings(500, 500, 0, 0);
         this.setReminderSetting(DEFAULT_REMINDER);
     }
 
