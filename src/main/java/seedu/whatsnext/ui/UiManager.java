@@ -36,16 +36,16 @@ public class UiManager extends ComponentManager implements Ui {
     private static MainWindow mainWindow;
     private static Logic logic;
     private Config config;
-    private UserPrefs prefs;
+    private static UserPrefs prefs;
 
-    private String reminderString;
+    private static String reminderString;
 
 
     public UiManager(Logic logic, Config config, UserPrefs prefs) {
         super();
-        this.logic = logic;
+        UiManager.logic = logic;
         this.config = config;
-        this.prefs = prefs;
+        UiManager.prefs = prefs;
     }
 
     @Override
@@ -99,12 +99,12 @@ public class UiManager extends ComponentManager implements Ui {
     }
 
     //@@author A0154986L
-    public void setReminderString(String newReminder) {
-        this.reminderString = newReminder;
+    public static void setReminderString(String newReminder) {
+        UiManager.reminderString = newReminder;
     }
 
     //@@author A0154986L
-    public String getReminderSetting() {
+    public static String getReminderSetting() {
         return prefs.getReminderSetting();
     }
 
