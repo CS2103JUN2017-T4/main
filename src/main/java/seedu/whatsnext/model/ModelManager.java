@@ -36,6 +36,8 @@ public class ModelManager extends ComponentManager implements Model {
 
     private Stack<TaskManager> undoTaskManager;
     private Stack<TaskManager> redoTaskManager;
+    
+    private String reminderSetting;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -49,6 +51,7 @@ public class ModelManager extends ComponentManager implements Model {
         filteredTasks = new FilteredList<>(this.taskManager.getTaskList());
         undoTaskManager = new Stack<TaskManager>();
         redoTaskManager = new Stack<TaskManager>();
+        this.reminderSetting = userPrefs.getReminderSetting();
     }
 
     public ModelManager() {
@@ -89,6 +92,21 @@ public class ModelManager extends ComponentManager implements Model {
         redoTaskManager.pop();
         undoTaskManager.push(currentTaskManager);
         indicateTaskManagerChanged();
+    }
+
+    // @@author A0154986L
+    /** Returns current reminder setting. */
+    @Override
+    public String getReminderSetting() {
+        return reminderSetting;
+    }
+
+    // @@author A0154986L
+    /** Sets new reminder setting. */
+    @Override
+    public void setReminderSetting(String newReminderSetting) {
+        this.reminderSetting = newReminderSetting;
+        UiManager.setReminderString(reminderSetting);
     }
 
     @Override
@@ -266,7 +284,6 @@ public class ModelManager extends ComponentManager implements Model {
         private Date remindEnd = new Date();
         private Calendar cal = Calendar.getInstance();
 
-        private String reminderSetting = UiManager.getReminderSetting();
         private Pattern p = Pattern.compile("(\\d+)\\s+(.*?)s?");
 
         @SuppressWarnings("serial")

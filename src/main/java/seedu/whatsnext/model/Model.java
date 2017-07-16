@@ -26,6 +26,14 @@ public interface Model {
     /** Redo previous action of task manager. */
     void redoTaskManager();
 
+    // @@author A0154986L
+    /** Returns current reminder setting. */
+    String getReminderSetting();
+
+    // @@author A0154986L
+    /** Sets new reminder setting. */
+    void setReminderSetting(String newReminderSetting);
+
     /** Re-saves data when file path is changed. */
     void saveTaskManager();
 

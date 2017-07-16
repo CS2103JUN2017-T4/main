@@ -43,7 +43,7 @@ public class UiManager extends ComponentManager implements Ui {
 
     public UiManager(Logic logic, Config config, UserPrefs prefs) {
         super();
-        UiManager.logic = logic;
+        this.logic = logic;
         this.config = config;
         this.prefs = prefs;
     }
@@ -103,15 +103,9 @@ public class UiManager extends ComponentManager implements Ui {
         UiManager.reminderString = newReminder;
     }
 
-    //@@author A0154986L
-    public static String getReminderSetting() {
-        return prefs.getReminderSetting();
-    }
-
     @Override
     public void stop() {
         prefs.updateLastUsedGuiSetting(mainWindow.getCurrentGuiSetting());
-        // updates the UserPrefs json file
         if (reminderString == null) {
             prefs.updateLastUsedReminderSetting(prefs.getReminderSetting());
         } else {

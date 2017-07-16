@@ -5,9 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.logging.Logger;
 
 import seedu.whatsnext.commons.core.LogsCenter;
-import seedu.whatsnext.logic.commands.CommandResult;
 import seedu.whatsnext.logic.commands.exceptions.CommandException;
-import seedu.whatsnext.ui.UiManager;
 
 //@@author A0154986L
 /**
@@ -35,13 +33,13 @@ public class RemindCommand extends Command {
     @Override
     public CommandResult execute() throws CommandException {
         requireNonNull(reminderString);
-        String currentReminderSetting = UiManager.getReminderSetting();
+        String currentReminderSetting = model.getReminderSetting();
 
         if (reminderString.equals(currentReminderSetting)) {
             logger.info(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING);
             throw new CommandException(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING + currentReminderSetting);
         } else {
-            UiManager.setReminderString(reminderString);
+            model.setReminderSetting(reminderString);
             logger.fine(MESSAGE_SUCCESS + reminderString);
             return new CommandResult(MESSAGE_SUCCESS + reminderString);
         }
