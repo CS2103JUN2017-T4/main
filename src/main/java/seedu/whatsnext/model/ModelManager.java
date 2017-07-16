@@ -36,7 +36,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     private Stack<TaskManager> undoTaskManager;
     private Stack<TaskManager> redoTaskManager;
-    
+
     private String reminderSetting;
 
     /**
