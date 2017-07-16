@@ -22,7 +22,6 @@ import seedu.whatsnext.model.task.BasicTask;
 import seedu.whatsnext.model.task.BasicTaskFeatures;
 import seedu.whatsnext.model.task.exceptions.DuplicateTaskException;
 import seedu.whatsnext.model.task.exceptions.TaskNotFoundException;
-import seedu.whatsnext.ui.UiManager;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -37,7 +36,7 @@ public class ModelManager extends ComponentManager implements Model {
     private Stack<TaskManager> undoTaskManager;
     private Stack<TaskManager> redoTaskManager;
 
-    private String reminderSetting;
+    private UserPrefs userPrefs;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -51,7 +50,7 @@ public class ModelManager extends ComponentManager implements Model {
         filteredTasks = new FilteredList<>(this.taskManager.getTaskList());
         undoTaskManager = new Stack<TaskManager>();
         redoTaskManager = new Stack<TaskManager>();
-        this.reminderSetting = userPrefs.getReminderSetting();
+        this.userPrefs = userPrefs;
     }
 
     public ModelManager() {
@@ -98,15 +97,14 @@ public class ModelManager extends ComponentManager implements Model {
     /** Returns current reminder setting. */
     @Override
     public String getReminderSetting() {
-        return reminderSetting;
+        return userPrefs.getReminderSetting();
     }
 
     // @@author A0154986L
     /** Sets new reminder setting. */
     @Override
     public void setReminderSetting(String newReminderSetting) {
-        this.reminderSetting = newReminderSetting;
-        UiManager.setReminderString(reminderSetting);
+        userPrefs.updateLastUsedReminderSetting(newReminderSetting);
     }
 
     @Override
@@ -303,11 +301,11 @@ public class ModelManager extends ComponentManager implements Model {
             cal.setTime(remindStart);
             remindStart = cal.getTime();
 
-            if (reminderSetting == null || reminderSetting == "3 day") {
+            if (getReminderSetting() == null || getReminderSetting() == "3 day") {
                 cal.add(Calendar.DATE, 3);
                 remindEnd = cal.getTime();
             } else {
-                Matcher m = p.matcher(reminderSetting);
+                Matcher m = p.matcher(getReminderSetting());
                 if (m.matches()) {
                     int amount = Integer.parseInt(m.group(1));
                     String unit = m.group(2);
@@ -326,11 +324,11 @@ public class ModelManager extends ComponentManager implements Model {
 
         @Override
         public String toString() {
-            if (reminderSetting == null || reminderSetting == "3 day") {
+            if (getReminderSetting() == null || getReminderSetting() == "3 day") {
                 cal.add(Calendar.DATE, 3);
                 remindEnd = cal.getTime();
             } else {
-                Matcher m = p.matcher(reminderSetting);
+                Matcher m = p.matcher(getReminderSetting());
                 if (m.matches()) {
                     int amount = Integer.parseInt(m.group(1));
                     String unit = m.group(2);

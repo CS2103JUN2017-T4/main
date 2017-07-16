@@ -38,8 +38,6 @@ public class UiManager extends ComponentManager implements Ui {
     private Config config;
     private UserPrefs prefs;
 
-    private static String reminderString;
-
 
     public UiManager(Logic logic, Config config, UserPrefs prefs) {
         super();
@@ -98,19 +96,10 @@ public class UiManager extends ComponentManager implements Ui {
         return allText.toString();
     }
 
-    //@@author A0154986L
-    public static void setReminderString(String newReminder) {
-        reminderString = newReminder;
-    }
-
     @Override
     public void stop() {
         prefs.updateLastUsedGuiSetting(mainWindow.getCurrentGuiSetting());
-        if (reminderString == null) {
-            prefs.updateLastUsedReminderSetting(prefs.getReminderSetting());
-        } else {
-            prefs.updateLastUsedReminderSetting(reminderString);
-        }
+        prefs.updateLastUsedReminderSetting(prefs.getReminderSetting());
         mainWindow.hide();
     }
 
