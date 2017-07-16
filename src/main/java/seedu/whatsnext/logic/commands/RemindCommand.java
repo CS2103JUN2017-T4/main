@@ -11,7 +11,6 @@ import seedu.whatsnext.commons.core.LogsCenter;
 * Adjusts the reminder setting of the task manager.
 */
 public class RemindCommand extends Command {
-    private static final Logger logger = LogsCenter.getLogger(RemindCommand.class);
 
     public static final String COMMAND_WORD = "remind";
 
@@ -23,6 +22,8 @@ public class RemindCommand extends Command {
     public static final String MESSAGE_NO_CHANGE_IN_REMINDER_SETTING = "No change in reminder setting.\n"
             + "Reminder setting: ";
 
+    private static final Logger logger = LogsCenter.getLogger(RemindCommand.class);
+
     private String reminderString;
 
     public RemindCommand(String reminderString) {
@@ -33,7 +34,6 @@ public class RemindCommand extends Command {
     public CommandResult execute() {
         requireNonNull(reminderString);
         String currentReminderSetting = model.getReminderSetting();
-
         if (reminderString.equals(currentReminderSetting)) {
             logger.info(String.format(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING, currentReminderSetting));
             return new CommandResult(String.format(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING, currentReminderSetting));
