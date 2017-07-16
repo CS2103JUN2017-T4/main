@@ -15,11 +15,11 @@ public class UserPrefs {
     private String taskManagerFilePath = "data/whatsnext.xml";
     private String taskManagerName = "MyTaskManager";
 
-    private final String DEFAULT_REMINDER = "3 day";
+    private final String defaultReminderSetting = "3 day";
 
     public UserPrefs() {
         this.setGuiSettings(500, 500, 0, 0);
-        this.setReminderSetting(DEFAULT_REMINDER);
+        this.setReminderSetting(defaultReminderSetting);
     }
 
     public GuiSettings getGuiSettings() {

@@ -35,12 +35,12 @@ public class RemindCommand extends Command {
         String currentReminderSetting = model.getReminderSetting();
 
         if (reminderString.equals(currentReminderSetting)) {
-            logger.info(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING);
-            return new CommandResult(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING + currentReminderSetting);
+            logger.info(String.format(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING, currentReminderSetting));
+            return new CommandResult(String.format(MESSAGE_NO_CHANGE_IN_REMINDER_SETTING, currentReminderSetting));
         } else {
             model.setReminderSetting(reminderString);
-            logger.fine(MESSAGE_SUCCESS + reminderString);
-            return new CommandResult(MESSAGE_SUCCESS + reminderString);
+            logger.fine(String.format(MESSAGE_SUCCESS, reminderString));
+            return new CommandResult(String.format(MESSAGE_SUCCESS, reminderString));
         }
     }
 
