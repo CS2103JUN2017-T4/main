@@ -212,6 +212,10 @@ public class AddCommandTest {
         public void setTaskManagerFilePath(String newFilePath) {
             fail("This method should not be called.");
         }
+
+        public void resetPrevTaskManager() {
+            fail("This method should not be called.");
+        }
     }
 
     //@@author A0156106M
@@ -222,6 +226,11 @@ public class AddCommandTest {
         @Override
         public void addTask(BasicTask task) throws DuplicateTaskException {
             throw new DuplicateTaskException();
+        }
+
+        @Override
+        public void resetPrevTaskManager() {
+            return;
         }
 
         @Override
