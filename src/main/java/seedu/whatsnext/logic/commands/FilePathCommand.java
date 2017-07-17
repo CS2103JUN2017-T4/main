@@ -9,7 +9,7 @@ import seedu.whatsnext.logic.commands.exceptions.CommandException;
 //@@author A0149894H
 public class FilePathCommand extends Command {
     public static final String COMMAND_WORD = "filepath";
-    public static final String MESSAGE_SUCCESS = "File Path located at:";
+    public static final String MESSAGE_SUCCESS = "File Path located at: ";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Locates the path where the storage xml file exists.";
 
     public FilePathCommand() {
@@ -18,7 +18,8 @@ public class FilePathCommand extends Command {
     @Override
     public CommandResult execute() throws CommandException {
         //requireNonNull(model);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Config.getTaskManagerFilePath()));
+        System.out.println(Config.getTaskManagerFilePath());
+        return new CommandResult(MESSAGE_SUCCESS + Config.getTaskManagerFilePath());
 
     }
 

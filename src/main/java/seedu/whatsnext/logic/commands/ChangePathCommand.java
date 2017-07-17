@@ -66,17 +66,21 @@ public class ChangePathCommand extends Command {
         }
 
     }
-
+    /**
+    Overwrites the current filepath in the path file located at resource/filepath/filepath
+     */
     private String overwriteFilePath() throws IOException {
-        File myFoo = new File("filepath");
-        FileWriter fooWriter = new FileWriter(myFoo, false);
+        File pathFile = new File("/filepath/filepath");
+        FileWriter writer = new FileWriter(pathFile, false);
 
         String stringLocation = toSave.toString();
-        fooWriter.write(stringLocation);
-        fooWriter.close();
+        writer.write(stringLocation);
+        writer.close();
         return stringLocation;
     }
-
+    /**
+     * Deletes old file at previous location
+     */
     private void deleteOldFile() {
         File f = new File("test.txt");
         String string = f.getAbsolutePath();
