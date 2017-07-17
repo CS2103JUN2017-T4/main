@@ -201,6 +201,17 @@ public class AddCommandTest {
         public void setReminderSetting(String newReminderSetting) {
             fail("This method should not be called.");
         }
+
+        @Override
+        public String getTaskManagerFilePath() {
+            fail("This method should not be called.");
+            return null;
+        }
+
+        @Override
+        public void setTaskManagerFilePath(String newFilePath) {
+            fail("This method should not be called.");
+        }
     }
 
     //@@author A0156106M
