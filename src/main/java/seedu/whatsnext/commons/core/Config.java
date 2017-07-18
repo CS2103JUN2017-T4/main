@@ -2,7 +2,6 @@ package seedu.whatsnext.commons.core;
 import java.util.Objects;
 import java.util.logging.Level;
 
-import seedu.whatsnext.commons.exceptions.IllegalValueException;
 
 /**
  * Config values used by the app
@@ -10,7 +9,6 @@ import seedu.whatsnext.commons.exceptions.IllegalValueException;
 public class Config {
 
     public static final String DEFAULT_CONFIG_FILE = "config.json";
-    private static String taskManagerFilePath = "";
     private static String taskManagerName = "MyTaskManager";
     // Config values customizable through config file
     private String appTitle = "WhatsNext App";
@@ -40,24 +38,6 @@ public class Config {
 
     public void setUserPrefsFilePath(String userPrefsFilePath) {
         this.userPrefsFilePath = userPrefsFilePath;
-    }
-
-    public static String getTaskManagerFilePath() {
-        return taskManagerFilePath;
-    }
-
-    public void setTaskManagerFilePath(String newTaskManagerFilePath) throws RepeatTaskManagerFilePathException {
-        if (taskManagerFilePath.equals(newTaskManagerFilePath)) {
-            throw new RepeatTaskManagerFilePathException();
-        } else {
-            taskManagerFilePath = newTaskManagerFilePath;
-        }
-    }
-
-    public static class RepeatTaskManagerFilePathException extends IllegalValueException {
-        public RepeatTaskManagerFilePathException() {
-            super("Function will result in duplicate tasks");
-        }
     }
 
     @Override
@@ -94,8 +74,8 @@ public class Config {
         return taskManagerName;
     }
 
-    public void setTaskManagerName(String taskManagerName) {
-        this.taskManagerName = taskManagerName;
+    public void setTaskManagerName(String newTaskManagerName) {
+        taskManagerName = newTaskManagerName;
     }
 
 }
