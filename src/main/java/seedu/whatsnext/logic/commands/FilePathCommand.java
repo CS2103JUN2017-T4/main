@@ -21,7 +21,7 @@ public class FilePathCommand extends Command {
     @Override
     public CommandResult execute() throws CommandException {
         requireNonNull(model);
-        String filePath = model.getTaskManagerFilePath();
+        filePath = model.getTaskManagerFilePath();
         return new CommandResult(MESSAGE_SUCCESS + filePath);
     }
 
