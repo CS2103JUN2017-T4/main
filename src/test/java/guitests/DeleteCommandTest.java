@@ -49,7 +49,6 @@ public class DeleteCommandTest extends TaskManagerGuiTest {
      */
     private void assertDeleteSuccess(Index index, final BasicTask[] currentList) {
         BasicTask taskToDelete = currentList[index.getZeroBased()];
-        System.out.println(taskToDelete.getName());
         BasicTask[] expectedRemainder = TestUtil.removeTasksFromList(currentList, index);
 
         commandBox.runCommand(DeleteCommand.COMMAND_WORD + " " + index.getOneBased());
